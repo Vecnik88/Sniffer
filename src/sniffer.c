@@ -1,30 +1,14 @@
 #include <stdio.h>
-#include <stdlib.h>
-#include <errno.h>
 #include <unistd.h>
-#include <netinet/in.h>
-#include <linux/if_ether.h>
-#include <net/if.h>
-#include <linux/filter.h>
-#include <sys/ioctl.h> 
+#include <stdlib.h>
 #include <string.h>
 #include <arpa/inet.h>
-#include <netinet/udp.h>
 #include <netinet/ip.h>
-#include <arpa/inet.h>
-#include <sys/socket.h>
-#include <netpacket/packet.h>
+#include <netinet/udp.h>
+#include <netinet/tcp.h>
 #include <net/ethernet.h>
-
-#include <stdio.h> //For standard things
-#include <stdlib.h>    //malloc
-#include <string.h>    //memset
-#include <netinet/ip_icmp.h>   //Provides declarations for icmp header
-#include <netinet/udp.h>   //Provides declarations for udp header
-#include <netinet/tcp.h>   //Provides declarations for tcp header
-#include <netinet/ip.h> 
+#include <netinet/ip_icmp.h>
 #include <sys/socket.h>
-#include <arpa/inet.h>
 
 void package_processing(unsigned char* buffer, int size);
 void print_ip_header(unsigned char* buffer, int size);
@@ -41,7 +25,7 @@ int main(int argc, char** argv)
 	int raw_sock = 0;
 	int data_size = 0;
 	char* buffer = (char*) malloc(65536);
-	raw_sock = socket(PF_PACKET, SOCK_RAW, htons(ETH_P_ALL));//socket(AF_INET , SOCK_RAW , IPPROTO_TCP);//
+	raw_sock = socket(PF_PACKET, SOCK_RAW, htons(ETH_P_ALL));
 
 	if (raw_sock == -1) {
 		perror("Error: create socket\n");
