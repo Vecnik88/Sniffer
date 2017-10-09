@@ -62,7 +62,7 @@ int main(int argc, char** argv)
 			exit(EXIT_FAILURE);
 		}
 
-		package_processing(buffer, data_size);
+		package_processing(buffer + sizeof(struct ethhdr), data_size);
 	}
 
 	close(raw_sock);
