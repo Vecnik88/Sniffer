@@ -1,4 +1,6 @@
-#include "../inc/sniffer.h"
+#include "sniffer.h"
+
+FILE* logfile = NULL;
 
 int main(int argc, char** argv)
 {

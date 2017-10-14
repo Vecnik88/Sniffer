@@ -1,7 +1,11 @@
-#include "../inc/sniffer.h"
+#include "sniffer.h"
 
-FILE* logfile = NULL;
-int tcp = 0, udp = 0, icmp = 0, others = 0, igmp = 0, total = 0;
+int tcp = 0;
+int udp = 0;
+int icmp = 0;
+int others = 0;
+int igmp = 0;
+int total = 0;
 
 void package_processing(unsigned char* buffer, int size)
 {
