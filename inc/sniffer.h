@@ -1,5 +1,5 @@
-//#ifndef SNIFFER_H
-//#define SNIFFER_H
+#ifndef SNIFFER_H
+#define SNIFFER_H
 
 #include <stdio.h>
 #include <unistd.h>
@@ -23,11 +23,11 @@ extern int others;
 extern int igmp;
 extern int total;
 
-void print_data(unsigned char* buffer, int size);
-void print_ip_header(unsigned char* buffer, int size);
-void print_tcp_packet(unsigned char* buffer, int size);
-void print_udp_packet(unsigned char * buffer, int size);
-void print_icmp_packet(unsigned char* buffer, int size);
-void package_processing(unsigned char* buffer, int size);
+void print_data(unsigned char *buffer, int size);
+void print_ip_header(unsigned char *buffer, int size);
+void print_tcp_packet(unsigned char *buffer, int size);
+void print_udp_packet(unsigned char *buffer, int size);
+void print_icmp_packet(unsigned char *buffer, int size);
+void package_processing(unsigned char *buffer, int size);
 
-//#endif
+#endif

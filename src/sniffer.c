@@ -1,4 +1,4 @@
-#include "sniffer.h"
+#include <sniffer.h>
 
 int tcp = 0;
 int udp = 0;
@@ -7,10 +7,10 @@ int others = 0;
 int igmp = 0;
 int total = 0;
 
-void package_processing(unsigned char* buffer, int size)
+void package_processing(unsigned char *buffer, int size)
 {
     /* заголовок ip пакета */
-    struct iphdr *iph = (struct iphdr*)buffer;
+    struct iphdr *iph = (struct iphdr *)buffer;
     ++total;
     switch (iph->protocol) /* Проверяем вышестоящий над ип протокол */
     {
@@ -38,7 +38,7 @@ void package_processing(unsigned char* buffer, int size)
     }
 
     printf("TCP : %d   UDP : %d   ICMP : %d   IGMP : %d   Others : %d   Total : %d\r",
-    		tcp,udp,icmp,igmp,others,total);
+    		tcp, udp, icmp, igmp, others, total);
 }
 
 void print_ip_header(unsigned char* buffer, int size)
@@ -46,8 +46,8 @@ void print_ip_header(unsigned char* buffer, int size)
     unsigned short iphdrlen;
     struct sockaddr_in source, dest;
 
-    struct iphdr* iph = (struct iphdr*)buffer;
-    iphdrlen = iph->ihl*4;
+    struct iphdr *iph = (struct iphdr*)buffer;
+    iphdrlen = iph->ihl * 4;
      
     memset(&source, 0, sizeof(source));
     source.sin_addr.s_addr = iph->saddr;

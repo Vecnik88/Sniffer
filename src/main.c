@@ -1,4 +1,4 @@
-#include "sniffer.h"
+#include <sniffer.h>
 
 FILE* logfile = NULL;
 
@@ -6,7 +6,7 @@ int main(int argc, char** argv)
 {
 	int raw_sock = 0;
 	int data_size = 0;
-	char* buffer = (char*) malloc(BUF_SIZE);
+	char *buffer = (char *) malloc(BUF_SIZE);
 
 	if (buffer == NULL) {
 		printf("Error allocate memory\n");
